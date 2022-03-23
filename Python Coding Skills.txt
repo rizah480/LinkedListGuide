@@ -1,0 +1,164 @@
+python tips
+Algorithm Solving
+
+*Array Sum Method*
+1) Keep the index of the data structure in mind when coding for it.
+2)Learning the difference between calling a method with the (.) operator vs placing the object inside method
+Array Sum Method
+def simpleArraySum(ar):
+    # Write your code here
+    length = len(ar)
+    sum = 0
+    while length > 0:
+        sum += ar[length - 1]
+        length = length - 1
+    return sum
+Comparing Triplets
+3) How to initialize arrays in python {ar = []}.You can manually input values inside the array delimeted by commas.
+4)You can also reference another data stucture while traversing one as long as you keep up with the indecies that you are using .
+def compareTriplets(a, b):
+    apoint = 0
+    bpoint = 0
+    length = len(a)
+    ar = []
+    while length > 0:
+        if a[length-1] < b[length-1]:
+            bpoint += 1
+        elif b[length-1] < a[length-1]:
+            apoint += 1
+        length = length -1 
+        
+    ar = [apoint,bpoint]
+    return ar
+AveryBigSum
+
+5)int and long were "unified" a few versions back. Before that it was possible to overflow an int through math ops.
+
+3.x has further advanced this by eliminating long altogether and only having int.
+AnIterationofSumCode    
+length = len(ar)
+    sum = 0
+    while length > 0:
+        sum += ar[length-1]
+        length = length -1
+    sum = int(sum)
+    return sum
+
+SumofTheDiagonals
+
+Strategy:
+1) Input will be called for from the machine giving the dimensions of the 2d array
+initialRowIndex = 0
+First Loop Initiated 
+2) sumLeftRight += arr[length-1][length-1]
+3) sumRightLeft += arr[initialRowindex][length-1]
+4) initialRowIndex += 1
+solution = abs(sumRightLeft - sumLeftRight)
+return solution
+
+########################################STAIRCASE###################################################problem
+def diagonalDifference(arr):
+    length = len(arr) # This will get the first dimension of a 2d array
+    initialRowindex = 0
+    sumLeftRight = 0
+    sumRightLeft = 0
+    while length > 0:
+        sumLeftRight += arr[length-1][length-1]
+        sumRightLeft += arr[initialRowindex][length-1]
+        initialRowindex += 1
+        length = length - 1
+    solution = abs(sumRightLeft - sumLeftRight)
+    return solution
+        
+
+
+
+
+def staircase(n):
+    First Attempt #########################################################################
+    index = 0
+    indexKeeper = 0
+    nKeeper = 0
+    spaceloopcounter = n
+    spaceloopcounterKeeper = n 
+    #Setting Boundary loop
+    while n > 0:
+        index += 1
+        indexKeeper = index
+        #FirstLoopDealingWithSpaces
+        while spaceloopcounter  > 0:
+                print(" ",end="")
+                spaceloopcounter = spaceloopcounter-1
+        spaceloopcounter = spaceloopcounterKeeper
+        #FirstLoopDealingWithSpaces
+        
+        #Setting InnerLoop
+        while index > 0:
+            spaceloopcounterKeeper = spaceloopcounterKeeper -1
+            
+            print("#",end="")
+            index = index -1
+        #resetting index variable to needed Value
+        index = indexKeeper
+        #NewLine
+        print("\n",end="")
+        #Terminating 
+        n = n-1
+        First Attempt #########################################################################
+
+        Second Attempt#########################################################################
+        for i in range(1,n+1):
+        s = '#'*i //This line will print the hashtag the same amount of times a value is multiplied against it 
+        print(s.rjust(n)) 
+rjust()-NEWLY AQUIRED  "This will aline text to the right...it has two parameters.......THE FIRST: is how far to the right do you want it spaced and what filler value do you want in it "
+
+        
+        
+        
+           
+    # Write your code here
+
+
+1/21/2022
+&&&&&&&&&&&&&&&&&&&&&&&&&&SOCKPAIRPROBLEM&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+PSUEDOCODE:
+sort the array
+
+count the values then take then divide by two.....reset the counter
+repeat
+
+add RESULT TO NUMBER OF PAIR VARIABLE
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+
+
+def sockMerchant(n, ar):
+    s = 0
+    for val in Counter(ar).values():
+        s+=val//2                    This line displays the floor operator "//"
+        print('TEST')
+        print(s)
+        print('TEST')
+    print('This is the Container')
+    print(Counter(ar))
+    print('This is the Container')
+    return s
+    # Write your code here
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+This was the repeated string problem
+
+res = (s.count('a') * (n//len(s)) ) + (s[:n%len(s)].count('a'))
+    return res
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+
+
+
+
