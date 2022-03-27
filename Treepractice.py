@@ -1,4 +1,7 @@
 #Node class created For Tree Data struct
+from urllib.parse import non_hierarchical
+
+
 class Node:
     def __init__(self,data,next = None):
         self.data = data
@@ -30,6 +33,38 @@ class Tree:
                     self.right.insert(val)
         else:
             self.val = val
+
+#This is where the edge cases will be listed for this function
+#I currently believe two out of three have been dealt with
+
+    
+    def delete(self,val):
+        tmp = Tree()
+        if self.val:
+            if val < self.val:
+                if self.left == None:
+                    print("There is nothing to delete")
+                if self.left.val == val:
+                    keeper = self.left
+                    if keeper.left != None:
+                        self.left = keeper.left
+                else:
+                    self.left.delete(val)
+            
+            if val > self.val:
+                if self.right == None:
+                    print("There is nothing to delete")
+                if self.right.val == val:
+                    coll = self.right
+                    if coll.right != None:
+                        self.right = coll.right
+                else:
+                    self.right.delete(val)
+        
+        
+
+
+
     
 
 
@@ -52,9 +87,14 @@ print(tree.right.val)
 #Children Trees Complete 
 #Insert Function ran
 tree.insert(15)
+tree.insert(13)
+tree.insert(30)
+tree.delete(15)
 #Insert function complete
 
 #Insert function tested 
+print(tree.left.left.val)
+#This shows that the 15 that was intially placed in the Tree data struct has been deleted
 print(tree.left.left.val)
 
 
