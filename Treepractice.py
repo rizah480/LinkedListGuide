@@ -97,11 +97,37 @@ class Tree:
 
 tree = Tree(6)
 tree.right = Tree(7)
-tree.insert(8)
+tree.left = Tree(5)
+tree.insert(3)
+tree.insert(4)
+tree.insert(2)
+tree.insert(1)
 
+#This lists out all the values stored 
 print(tree.val)
 print(tree.right.val)
-print(tree.right.right.val)
+print(tree.left.val)
+print(tree.left.left.val)
+print(tree.left.left.left.val)
+print(tree.left.left.right.val)
+print(tree.left.left.left.left.val)
+#This is the end of the Tree values 
+
+tree.delete(1)
+
+#This shows that the delte functionality fault has been resolved 
+print(tree.val)
+print(tree.right.val)
+print(tree.left.val)
+print(tree.left.left.val)
+print(tree.left.left.left.val)
+print(tree.left.left.right.val)
+print(tree.left.left.left.left.val)
+
+
+
+
+
 
 
 
