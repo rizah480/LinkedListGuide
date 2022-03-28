@@ -35,7 +35,13 @@ class Tree:
             self.val = val
 
 #This is where the edge cases will be listed for this function
-#I currently believe two out of three have been dealt with
+#The following Edge Cases have been dealt with for the delete()
+#1 There is no value in tree that matches
+#2 The value is larger than root tree value
+#3 The value is smaller than root
+#4 There is no node to replace node that has been deleted 
+
+
 
     
     def delete(self,val):
@@ -48,6 +54,8 @@ class Tree:
                     keeper = self.left
                     if keeper.left != None:
                         self.left = keeper.left
+                    else:
+                        self.left = Tree('x')
                 else:
                     self.left.delete(val)
             
@@ -58,44 +66,46 @@ class Tree:
                     coll = self.right
                     if coll.right != None:
                         self.right = coll.right
+                    else:
+                        self.right = Tree('x')
                 else:
                     self.right.delete(val)
-        
-        
-
-
-
+        else:
+            print("The Tree does not have a value in its value spot")
     
+    #This function is DEFECTIVE FOR NOW(FIX::TBD)
+    def printValues(self):
+        if self.left:
+            self.left.printValues()
+            
+            print(self.val)
+        if self.right:
+            self.right.printValues()
 
+        
+        
 
 
 
 #Begin implementation of Tree 
-tree = Tree(20)
+
 #Tree instance created
-print(tree)
-print(tree.val)
+
 #Tree has been created and data has been properly stored inside
 
 
-#Creating the actual tree struct
-tree.left = Tree(18)
-tree.right = Tree(22)
-#Children nodes have been instantiated 
-print(tree.left.val)
-print(tree.right.val)
-#Children Trees Complete 
-#Insert Function ran
-tree.insert(15)
-tree.insert(13)
-tree.insert(30)
-tree.delete(15)
-#Insert function complete
 
-#Insert function tested 
-print(tree.left.left.val)
-#This shows that the 15 that was intially placed in the Tree data struct has been deleted
-print(tree.left.left.val)
+tree = Tree(6)
+tree.right = Tree(7)
+tree.insert(8)
+
+print(tree.val)
+print(tree.right.val)
+print(tree.right.right.val)
+
+
+
+
 
 
 
